@@ -1,0 +1,5 @@
+# create db.properties file, copy variables below and insert valid credentials.
+
+db.url=<db_url>
+db.user=<db_user>
+db.password=<db_password>
