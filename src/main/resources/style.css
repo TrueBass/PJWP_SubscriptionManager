@@ -2,4 +2,7 @@
     -text: #F2F5EA;
     -accent: #E75A7C;
     -bg: #2C363F;
+
+    -fx-background-color: -bg;
+    -fx-font-size: 16px;
 }

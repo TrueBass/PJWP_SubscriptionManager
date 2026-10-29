@@ -1,0 +1,15 @@
+.sidebar {
+    -fx-padding: 10;
+    -fx-background-color: -accent;
+}
+
+.sidebar .button {
+    -fx-text-fill: -text;
+    -fx-background-color: -bg;
+
+    -fx-min-width: 140px;
+    -fx-pref-width: 140px;
+    -fx-max-width: 140px;
+    
+    -fx-border-radius: 8px;
+}
