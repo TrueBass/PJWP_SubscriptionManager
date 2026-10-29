@@ -1,0 +1,28 @@
+.sidebar {
+    -fx-padding: 10 0 10 0;
+    -fx-background-color: -accent;
+
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+}
+
+.sidebar .button {
+    -fx-text-fill: -bg;
+    -fx-background-color: transparent;
+
+    -fx-min-width: 110px;
+    -fx-pref-width: 110px;
+    -fx-max-width: 110px;
+
+    -fx-border-radius: 0;
+}
+
+.sidebar .button:hover {
+    -fx-text-fill: -accent;
+    -fx-background-color: -bg;
+}
+
+.active-btn {
+    -fx-text-fill: -accent;
+    -fx-background-color: -bg;
+}

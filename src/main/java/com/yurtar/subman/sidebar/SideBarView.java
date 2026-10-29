@@ -13,12 +13,11 @@ public class SideBarView extends BorderPane {
     private static final Button logout = new Button("Logout");
 
     public SideBarView() {
-        getStylesheets().add(getClass().getResource("style.css").toExternalForm());
+        getStylesheets().add(getClass().getResource("/sidebar.css").toExternalForm());
         getStyleClass().add("sidebar");
 
-        VBox centerContent = new VBox(8,
-            new Label("SideBar"),
-            home, subs, settings
+        VBox centerContent = new VBox(
+                8, home, subs, settings
         );
         setCenter(centerContent);
         setBottom(logout);

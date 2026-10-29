@@ -3,7 +3,7 @@ package com.yurtar.subman;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.layout.HBox;
-import javafx.scene.layout.VBox;
+
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -18,7 +18,7 @@ public class Main extends Application {
     HBox layout = new HBox(new SideBarView());
 
     Scene scene = new Scene(layout, 900, 600);
-    scene.getStylesheets().add(Main.class.getResource("/style.css").toExternalForm());
+    scene.getStylesheets().add(getClass().getResource("/style.css").toExternalForm());
     
     stage.setTitle("Subscriptions");
     stage.setScene(scene);
