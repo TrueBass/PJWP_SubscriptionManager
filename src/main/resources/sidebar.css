@@ -15,14 +15,27 @@
     -fx-max-width: 110px;
 
     -fx-border-radius: 0;
+
+    -fx-alignment: center-left;
 }
 
 .sidebar .button:hover {
-    -fx-text-fill: -accent;
+    -fx-text-fill: -text;
     -fx-background-color: -bg;
 }
 
-.active-btn {
-    -fx-text-fill: -accent;
+.sidebar .button.active-btn {
+    -fx-text-fill: -text;
     -fx-background-color: -bg;
+}
+
+.pane {
+    -fx-font-size: 21px;
+    -fx-min-width: 200px;
+    -fx-pref-width: 200px;
+    -fx-background-color: red;
+}
+
+.home {
+    -fx-padding: 20;
 }

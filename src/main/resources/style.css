@@ -5,3 +5,7 @@
 
     -fx-background-color: -bg;
 }
+
+.label {
+    -fx-text-fill: -text;
+}
