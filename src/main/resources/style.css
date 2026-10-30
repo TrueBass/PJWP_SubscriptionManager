@@ -1,5 +1,14 @@
 .root {
-    -text: #F2F5EA;
+    /* -text: #F2F5EA;
     -accent: #E75A7C;
-    -bg: #2C363F;
+    -bg: #2C363F; */
+    -text: #faeadd;
+    -accent: #ddaaff;
+    -bg: #222023;
+
+    -fx-background-color: -bg;
+}
+
+.label {
+    -fx-text-fill: -text;
 }

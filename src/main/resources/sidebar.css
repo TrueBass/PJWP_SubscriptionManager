@@ -1,0 +1,41 @@
+.sidebar {
+    -fx-padding: 10 0 10 0;
+    -fx-background-color: -accent;
+
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+}
+
+.sidebar .button {
+    -fx-text-fill: -bg;
+    -fx-background-color: transparent;
+
+    -fx-min-width: 120px;
+    -fx-pref-width: 120px;
+    -fx-max-width: 120px;
+
+    -fx-border-radius: 0;
+
+    -fx-alignment: center-left;
+}
+
+.sidebar .button:hover {
+    -fx-text-fill: -text;
+    -fx-background-color: -bg;
+}
+
+.sidebar .button.active-btn {
+    -fx-text-fill: -text;
+    -fx-background-color: -bg;
+}
+
+.pane {
+    -fx-font-size: 21px;
+    -fx-min-width: 200px;
+    -fx-pref-width: 200px;
+    -fx-background-color: red;
+}
+
+.home {
+    -fx-padding: 20;
+}
