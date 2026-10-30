@@ -1,0 +1,17 @@
+.root {
+    /* -fx-background-color: radial-gradient(
+        center 50% 100%,
+        radius 80%,
+        #faeadd 0%,
+        #fbcf4f 20%,
+        #f29cb7 40%,
+        #ddaaff 60%,
+        #522a6f 80%,
+        #222023 100%
+    ); */
+    -fx-background-color: green;
+    -fx-padding: 10px;
+
+    
+}
+

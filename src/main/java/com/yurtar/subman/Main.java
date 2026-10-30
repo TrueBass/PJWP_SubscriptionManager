@@ -1,5 +1,6 @@
 package com.yurtar.subman;
 
+import com.yurtar.subman.home.HomeView;
 import com.yurtar.subman.sidebar.Page;
 import javafx.application.Application;
 import javafx.scene.Node;
@@ -29,7 +30,7 @@ public class Main extends Application {
 
   @Override
   public void start(Stage stage) throws IOException {
-    pages.put(Page.HOME, new Label("HOME"));
+    pages.put(Page.HOME, new HomeView());
     pages.put(Page.SETTINGS, new Label("SETTINGS"));
     pages.put(Page.SUBSCRIPTIONS, new Label("SUBS"));
 
