@@ -9,6 +9,7 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.HBox;
 
 import javafx.scene.layout.Priority;
+import javafx.scene.text.Font;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -30,6 +31,25 @@ public class Main extends Application {
 
   @Override
   public void start(Stage stage) throws IOException {
+    // All available default fonts inb JavaFX
+    // Font.getFamilies().forEach(System.out::println);
+
+    /* TODO:
+        All Subscriptions View: {
+          Subscription cards list,
+          Subsctiption edit area,
+          New sub button/form,
+          Subs management,
+        },
+        Settings/Account View: {
+          Account management,
+          Payment methods list & management,
+          Offline mode/Sync switch,
+          Set app PIN,
+          Theme change?
+        }
+    */
+
     pages.put(Page.HOME, new HomeView());
     pages.put(Page.SETTINGS, new Label("SETTINGS"));
     pages.put(Page.SUBSCRIPTIONS, new Label("SUBS"));

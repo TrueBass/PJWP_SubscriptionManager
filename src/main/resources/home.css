@@ -9,8 +9,8 @@
         #522a6f 80%,
         #222023 100%
     ); */
-    -fx-background-color: green;
-    -fx-padding: 10px;
+    -fx-background-color: -bg;
+    -fx-padding: 20px;
 
     
 }
