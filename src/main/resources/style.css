@@ -2,11 +2,27 @@
     /* -text: #F2F5EA;
     -accent: #E75A7C;
     -bg: #2C363F; */
-    -text: #faeadd;
-    -accent: #ddaaff;
-    -bg: #222023;
+
+    /*-text: #faeadd;*/
+    /*-accent: #ddaaff;*/
+    /*-bg: #222023;*/
+
+    -text: #f2f2f2;
+    -accent: #abd1c6;
+    -bg: #312f2c;
+
+    -dark-purple: #522a6f;
+    -yellow: #fbcf4f;
+    -pink: #f29cb7;
 
     -fx-background-color: -bg;
+
+    /*-fx-font-family: "";*/
+    /*-fx-font-style: normal;*/
+
+    /* FONTS
+        Tahoma
+    */
 }
 
 .label {

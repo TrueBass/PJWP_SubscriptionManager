@@ -1,0 +1,34 @@
+.main-card {
+    -fx-padding: 16px;
+
+    -fx-min-width: 300px;
+    -fx-pref-width: 350px;
+    -fx-max-width: 400px;
+
+    -fx-text-fill: -bg;
+    -fx-background-radius: 12px;
+    -fx-background-color: -accent;
+}
+
+.month-label {
+    -fx-padding: 0 5;
+
+    -fx-text-fill: -accent;
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+
+    -fx-opacity: 0.7;
+    -fx-background-color: -bg;
+    -fx-background-radius: 50px;
+}
+
+.monthly-spent {
+    -fx-font-weight: bold;
+    -fx-text-fill: -bg;
+    -fx-font-size: 32px;
+}
+
+.gray-text {
+    -fx-text-fill: -bg;
+    -fx-font-size: 18px;
+}
