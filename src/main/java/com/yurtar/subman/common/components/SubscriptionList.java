@@ -16,22 +16,34 @@ import java.util.List;
 public class SubscriptionList extends VBox {
 
   private final VBox items = new VBox(8);
-  private final Button action;
+  private Button action;
+
+  // List without the title row (the page has its own header)
+  public SubscriptionList() {
+    this(null, null);
+  }
 
   public SubscriptionList(String title, String actionText) {
     super(10);
     getStylesheets().add(getClass().getResource("/subscription.css").toExternalForm());
     getStyleClass().add("sub-list");
 
-    Label titleLabel = new Label(title);
-    titleLabel.getStyleClass().add("sub-list-title");
-    action = new Button(actionText);
-    action.getStyleClass().add("sub-list-action");
+    if (title != null) {
+      Label titleLabel = new Label(title);
+      titleLabel.getStyleClass().add("sub-list-title");
 
-    Region spacer = new Region();
-    HBox.setHgrow(spacer, Priority.ALWAYS);
-    HBox header = new HBox(titleLabel, spacer, action);
-    header.setAlignment(Pos.CENTER_LEFT);
+      Region spacer = new Region();
+      HBox.setHgrow(spacer, Priority.ALWAYS);
+      HBox header = new HBox(titleLabel, spacer);
+      header.setAlignment(Pos.CENTER_LEFT);
+
+      if (actionText != null) {
+        action = new Button(actionText);
+        action.getStyleClass().add("sub-list-action");
+        header.getChildren().add(action);
+      }
+      getChildren().add(header);
+    }
 
     items.getStyleClass().add("sub-items");
 
@@ -41,7 +53,7 @@ public class SubscriptionList extends VBox {
     scroll.setHbarPolicy(ScrollPane.ScrollBarPolicy.NEVER);
     VBox.setVgrow(scroll, Priority.ALWAYS);
 
-    getChildren().addAll(header, scroll);
+    getChildren().add(scroll);
   }
 
   public void setSubscriptions(List<Subscription> subs) {

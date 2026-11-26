@@ -1,0 +1,22 @@
+.subs-page {
+    -fx-background-color: -bg;
+    -fx-padding: 20px;
+}
+
+/* list shouldn't take the whole width, the right side is for details */
+.subs-left {
+    -fx-min-width: 320px;
+    -fx-pref-width: 400px;
+    -fx-max-width: 440px;
+}
+
+.subs-title {
+    -fx-font-size: 26px;
+    -fx-font-weight: bold;
+}
+
+.subs-summary {
+    -fx-font-size: 13px;
+    -fx-opacity: 0.6;
+    -fx-padding: 0 0 12 0;
+}

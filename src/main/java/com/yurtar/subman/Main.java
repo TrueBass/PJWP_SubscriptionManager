@@ -2,6 +2,7 @@ package com.yurtar.subman;
 
 import com.yurtar.subman.home.HomeView;
 import com.yurtar.subman.sidebar.Page;
+import com.yurtar.subman.subs.SubscriptionsView;
 import javafx.application.Application;
 import javafx.scene.Node;
 import javafx.scene.Scene;
@@ -52,7 +53,7 @@ public class Main extends Application {
 
     pages.put(Page.HOME, new HomeView());
     pages.put(Page.SETTINGS, new Label("SETTINGS"));
-    pages.put(Page.SUBSCRIPTIONS, new Label("SUBS"));
+    pages.put(Page.SUBSCRIPTIONS, new SubscriptionsView());
 
     pages.values().forEach(page -> HBox.setHgrow(page, Priority.ALWAYS));
 
