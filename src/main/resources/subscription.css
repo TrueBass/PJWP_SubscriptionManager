@@ -39,6 +39,19 @@
     -fx-border-color: -accent;
 }
 
+.sub-card-clickable {
+    -fx-cursor: hand;
+}
+
+.sub-card-selected {
+    -fx-background-color: derive(-bg, 22%);
+    -fx-border-color: derive(-accent, -20%);
+}
+
+.sub-card-selected:hover {
+    -fx-background-color: derive(-bg, 22%);
+}
+
 .sub-icon {
     -fx-min-width: 32px;
     -fx-min-height: 32px;

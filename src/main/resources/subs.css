@@ -1,0 +1,153 @@
+.subs-page {
+    -fx-background-color: -bg;
+    -fx-padding: 20px;
+}
+
+/* list shouldn't take the whole width, the right side is for details */
+.subs-left {
+    -fx-min-width: 320px;
+    -fx-pref-width: 400px;
+    -fx-max-width: 440px;
+}
+
+.subs-title {
+    -fx-font-size: 26px;
+    -fx-font-weight: bold;
+}
+
+.subs-summary {
+    -fx-font-size: 13px;
+    -fx-opacity: 0.6;
+    -fx-padding: 0 0 6 0;
+}
+
+/* inputs: search field */
+.subs-search {
+    -fx-padding: 8 12;
+    -fx-font-size: 13px;
+    -fx-text-fill: -text;
+    -fx-prompt-text-fill: derive(-text, -45%);
+    -fx-background-color: derive(-bg, 10%);
+    -fx-background-radius: 10px;
+    -fx-border-color: transparent;
+    -fx-border-radius: 10px;
+}
+
+.subs-search:focused {
+    -fx-border-color: -accent;
+}
+
+.subs-empty {
+    -fx-padding: 12 0;
+    -fx-opacity: 0.6;
+}
+
+/* filter dropdowns, same look as the search field */
+.subs-filter {
+    -fx-font-size: 12px;
+    -fx-background-color: derive(-bg, 10%);
+    -fx-background-radius: 10px;
+    -fx-cursor: hand;
+}
+
+.subs-filter:hover {
+    -fx-background-color: derive(-bg, 18%);
+}
+
+.subs-filter .list-cell {
+    -fx-text-fill: -text;
+    -fx-background-color: transparent;
+}
+
+.subs-filter .arrow {
+    -fx-background-color: -text;
+}
+
+.subs-filter .combo-box-popup .list-view {
+    -fx-background-color: derive(-bg, 10%);
+}
+
+.subs-filter .combo-box-popup .list-view .list-cell:filled:hover,
+.subs-filter .combo-box-popup .list-view .list-cell:filled:selected {
+    -fx-background-color: derive(-bg, 25%);
+}
+
+.add-button {
+    -fx-min-width: 48px;
+    -fx-min-height: 48px;
+    -fx-max-width: 48px;
+    -fx-max-height: 48px;
+    -fx-background-color: -accent;
+    -fx-background-radius: 24px;
+    -fx-cursor: hand;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.4), 10, 0, 0, 3);
+}
+
+.add-button:hover {
+    -fx-background-color: derive(-accent, 15%);
+}
+
+.add-button .ikonli-font-icon {
+    -fx-icon-color: -bg;
+    -fx-icon-size: 26px;
+}
+
+/* right side panel */
+.subs-details {
+    -fx-padding: 20px;
+    -fx-background-color: derive(-bg, 6%);
+    -fx-background-radius: 16px;
+    -fx-min-width: 300px;
+}
+
+.subs-details-hint {
+    -fx-opacity: 0.5;
+}
+
+.subs-details-scroll,
+.subs-details-scroll > .viewport {
+    -fx-background-color: transparent;
+    -fx-padding: 0;
+}
+
+.subs-details-scroll .sub-form {
+    -fx-padding: 0 10 0 0;
+}
+
+.subs-details-scroll .scroll-bar {
+    -fx-background-color: transparent;
+    -fx-pref-width: 8px;
+}
+
+.subs-details-scroll .scroll-bar .thumb {
+    -fx-background-color: derive(-bg, 30%);
+    -fx-background-radius: 4px;
+}
+
+.subs-details-scroll .scroll-bar .increment-button,
+.subs-details-scroll .scroll-bar .decrement-button {
+    -fx-padding: 0;
+}
+
+.subs-details-scroll .scroll-bar .increment-arrow,
+.subs-details-scroll .scroll-bar .decrement-arrow {
+    -fx-shape: " ";
+    -fx-padding: 0;
+}
+
+/* add subscription dialog, .root because style.css gives every root the -bg color */
+.root.dialog-backdrop {
+    -fx-background-color: rgba(0, 0, 0, 0.35);
+}
+
+.dialog-card {
+    -fx-padding: 24px;
+    -fx-background-color: -bg;
+    -fx-background-radius: 16px;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.5), 24, 0, 0, 6);
+}
+
+.dialog-title {
+    -fx-font-size: 20px;
+    -fx-font-weight: bold;
+}

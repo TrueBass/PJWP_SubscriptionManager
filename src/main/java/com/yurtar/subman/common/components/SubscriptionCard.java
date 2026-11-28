@@ -19,8 +19,11 @@ public class SubscriptionCard extends HBox {
 
   private static final DateTimeFormatter DATE = DateTimeFormatter.ofPattern("MMM d", Locale.ENGLISH);
 
+  private final Subscription sub;
+
   public SubscriptionCard(Subscription sub) {
     super(12);
+    this.sub = sub;
     getStyleClass().add("sub-card");
     setAlignment(Pos.CENTER_LEFT);
 
@@ -42,6 +45,10 @@ public class SubscriptionCard extends HBox {
     price.setAlignment(Pos.CENTER_RIGHT);
 
     getChildren().addAll(icon(sub), info, spacer, price);
+  }
+
+  public Subscription getSubscription() {
+    return sub;
   }
 
   private static StackPane icon(Subscription sub) {
