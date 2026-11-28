@@ -11,12 +11,15 @@ import javafx.scene.layout.Region;
 import javafx.scene.layout.VBox;
 
 import java.util.List;
+import java.util.function.Consumer;
 
 // Titled, scrollable list of subscription cards with an action button in the header.
 public class SubscriptionList extends VBox {
 
   private final VBox items = new VBox(8);
   private Button action;
+  private Consumer<Subscription> onSelect;
+  private Subscription selected;
 
   // List without the title row (the page has its own header)
   public SubscriptionList() {
@@ -57,7 +60,38 @@ public class SubscriptionList extends VBox {
   }
 
   public void setSubscriptions(List<Subscription> subs) {
-    items.getChildren().setAll(subs.stream().map(SubscriptionCard::new).toList());
+    items.getChildren().setAll(subs.stream().map(this::makeCard).toList());
+  }
+
+  // makes cards clickable, the clicked one gets highlighted
+  public void setOnSelect(Consumer<Subscription> onSelect) {
+    this.onSelect = onSelect;
+  }
+
+  public void setSelected(Subscription sub) {
+    selected = sub;
+    for (var node : items.getChildren()) {
+      SubscriptionCard card = (SubscriptionCard) node;
+      card.getStyleClass().remove("sub-card-selected");
+      if (card.getSubscription().equals(sub)) {
+        card.getStyleClass().add("sub-card-selected");
+      }
+    }
+  }
+
+  private SubscriptionCard makeCard(Subscription sub) {
+    SubscriptionCard card = new SubscriptionCard(sub);
+    if (onSelect != null) {
+      card.getStyleClass().add("sub-card-clickable");
+      if (sub.equals(selected)) {
+        card.getStyleClass().add("sub-card-selected");
+      }
+      card.setOnMouseClicked(e -> {
+        setSelected(sub);
+        onSelect.accept(sub);
+      });
+    }
+    return card;
   }
 
   public Button getAction() {

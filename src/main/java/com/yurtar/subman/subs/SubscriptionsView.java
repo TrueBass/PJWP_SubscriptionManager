@@ -21,7 +21,7 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
-// All subscriptions page. Left: header + search/filters + list, right side is for the details panel (later).
+// All subscriptions page. Left: header + search/filters + list, right: details of the clicked sub.
 public class SubscriptionsView extends HBox {
 
   private static final String ANY_DATE = "Any date";
@@ -42,6 +42,7 @@ public class SubscriptionsView extends HBox {
   private final SubscriptionList list = new SubscriptionList();
   private final Label empty = new Label("No subscriptions found");
   private final Button addButton = new Button();
+  private final VBox details = new VBox(12);
 
   public SubscriptionsView() {
     super(20);
@@ -84,7 +85,12 @@ public class SubscriptionsView extends HBox {
     left.getStyleClass().add("subs-left");
     HBox.setHgrow(left, Priority.ALWAYS);
 
-    getChildren().add(left);
+    list.setOnSelect(this::showDetails);
+    details.getStyleClass().add("subs-details");
+    HBox.setHgrow(details, Priority.ALWAYS);
+    showDetails(null);
+
+    getChildren().addAll(left, details);
     refresh();
   }
 
@@ -102,6 +108,19 @@ public class SubscriptionsView extends HBox {
     list.setSubscriptions(shown);
     empty.setVisible(shown.isEmpty());
     empty.setManaged(shown.isEmpty());
+  }
+
+  // TODO edit form for the selected sub
+  private void showDetails(Subscription sub) {
+    if (sub == null) {
+      Label hint = new Label("Select a subscription to see its details");
+      hint.getStyleClass().add("subs-details-hint");
+      details.getChildren().setAll(hint);
+      return;
+    }
+    Label name = new Label(sub.name());
+    name.getStyleClass().add("subs-title");
+    details.getChildren().setAll(name);
   }
 
   private boolean matchesDate(Subscription s) {

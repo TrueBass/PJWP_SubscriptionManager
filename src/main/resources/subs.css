@@ -91,3 +91,15 @@
     -fx-icon-color: -bg;
     -fx-icon-size: 26px;
 }
+
+/* right side panel */
+.subs-details {
+    -fx-padding: 20px;
+    -fx-background-color: derive(-bg, 6%);
+    -fx-background-radius: 16px;
+    -fx-min-width: 300px;
+}
+
+.subs-details-hint {
+    -fx-opacity: 0.5;
+}
