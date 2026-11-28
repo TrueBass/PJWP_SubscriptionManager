@@ -134,3 +134,20 @@
     -fx-shape: " ";
     -fx-padding: 0;
 }
+
+/* add subscription dialog, .root because style.css gives every root the -bg color */
+.root.dialog-backdrop {
+    -fx-background-color: rgba(0, 0, 0, 0.35);
+}
+
+.dialog-card {
+    -fx-padding: 24px;
+    -fx-background-color: -bg;
+    -fx-background-radius: 16px;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.5), 24, 0, 0, 6);
+}
+
+.dialog-title {
+    -fx-font-size: 20px;
+    -fx-font-weight: bold;
+}

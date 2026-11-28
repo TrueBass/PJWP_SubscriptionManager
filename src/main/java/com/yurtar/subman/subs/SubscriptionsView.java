@@ -81,7 +81,7 @@ public class SubscriptionsView extends HBox {
     addButton.getStyleClass().add("add-button");
     StackPane.setAlignment(addButton, Pos.BOTTOM_RIGHT);
     StackPane.setMargin(addButton, new Insets(0, 20, 12, 0));
-    // TODO open add subscription form
+    addButton.setOnAction(e -> new AddSubscriptionDialog(getScene().getWindow(), this::addSubscription).show());
     StackPane listArea = new StackPane(list, addButton);
     VBox.setVgrow(listArea, Priority.ALWAYS);
 
@@ -157,6 +157,14 @@ public class SubscriptionsView extends HBox {
     list.setSelected(updated);
     refresh();
     showDetails(updated);
+  }
+
+  // new sub from the add dialog, select it right away so you see it was added
+  private void addSubscription(Subscription sub) {
+    subs.add(sub);
+    list.setSelected(sub);
+    refresh();
+    showDetails(sub);
   }
 
   private void deleteSelected() {
