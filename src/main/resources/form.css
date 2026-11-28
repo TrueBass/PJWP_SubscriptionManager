@@ -1,0 +1,127 @@
+/* subscription form (edit panel + add dialog) */
+
+.form-section {
+    -fx-padding: 8 0 0 2;
+    -fx-font-size: 11px;
+    -fx-font-weight: bold;
+    -fx-opacity: 0.55;
+}
+
+.form-row {
+    -fx-min-height: 40px;
+    -fx-padding: 4 6 4 12;
+    -fx-background-color: derive(-bg, 14%);
+    -fx-background-radius: 10px;
+}
+
+.form-row-label {
+    -fx-opacity: 0.7;
+}
+
+.form-row .text-field {
+    -fx-pref-width: 170px;
+    -fx-alignment: center-right;
+    -fx-text-fill: -text;
+    -fx-prompt-text-fill: derive(-text, -45%);
+    -fx-background-color: transparent;
+}
+
+.form-row .text-field:focused {
+    -fx-background-color: derive(-bg, 22%);
+    -fx-background-radius: 6px;
+}
+
+.form-row .date-picker,
+.form-row .date-picker > .arrow-button,
+.form-row .color-picker {
+    -fx-background-color: transparent;
+}
+
+.form-row .date-picker > .arrow-button > .arrow {
+    -fx-background-color: -text;
+}
+
+.form-row .color-picker .color-picker-label .text {
+    -fx-fill: -text;
+}
+
+.form-row .check-box {
+    -fx-text-fill: -text;
+}
+
+.form-row .check-box .box {
+    -fx-background-color: derive(-bg, 35%);
+    -fx-background-radius: 4px;
+}
+
+.form-row .check-box:selected .box {
+    -fx-background-color: -accent;
+}
+
+.form-row .check-box:selected .mark {
+    -fx-background-color: -bg;
+}
+
+/* Monthly / Yearly switch */
+.cycle-toggle {
+    -fx-padding: 4px;
+    -fx-background-color: derive(-bg, 14%);
+    -fx-background-radius: 10px;
+}
+
+.cycle-toggle .toggle-button {
+    -fx-padding: 6;
+    -fx-text-fill: -text;
+    -fx-background-color: transparent;
+    -fx-background-radius: 8px;
+    -fx-cursor: hand;
+}
+
+.cycle-toggle .toggle-button:selected {
+    -fx-text-fill: -bg;
+    -fx-font-weight: bold;
+    -fx-background-color: -accent;
+}
+
+.form-error {
+    -fx-text-fill: #ff7b7b;
+}
+
+/* buttons under the form */
+.primary-button,
+.secondary-button,
+.danger-button {
+    -fx-padding: 10;
+    -fx-font-weight: bold;
+    -fx-background-radius: 10px;
+    -fx-border-radius: 10px;
+    -fx-cursor: hand;
+}
+
+.primary-button {
+    -fx-text-fill: -bg;
+    -fx-background-color: -accent;
+}
+
+.primary-button:hover {
+    -fx-background-color: derive(-accent, 15%);
+}
+
+.secondary-button {
+    -fx-text-fill: -text;
+    -fx-background-color: derive(-bg, 20%);
+}
+
+.danger-button {
+    -fx-text-fill: #ff7b7b;
+    -fx-background-color: transparent;
+    -fx-border-color: #c0504d;
+}
+
+.danger-button:hover {
+    -fx-background-color: rgba(192, 80, 77, 0.15);
+}
+
+.form-row .date-picker {
+    -fx-pref-width: 150px;
+}

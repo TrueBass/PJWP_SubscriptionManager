@@ -103,3 +103,34 @@
 .subs-details-hint {
     -fx-opacity: 0.5;
 }
+
+.subs-details-scroll,
+.subs-details-scroll > .viewport {
+    -fx-background-color: transparent;
+    -fx-padding: 0;
+}
+
+.subs-details-scroll .sub-form {
+    -fx-padding: 0 10 0 0;
+}
+
+.subs-details-scroll .scroll-bar {
+    -fx-background-color: transparent;
+    -fx-pref-width: 8px;
+}
+
+.subs-details-scroll .scroll-bar .thumb {
+    -fx-background-color: derive(-bg, 30%);
+    -fx-background-radius: 4px;
+}
+
+.subs-details-scroll .scroll-bar .increment-button,
+.subs-details-scroll .scroll-bar .decrement-button {
+    -fx-padding: 0;
+}
+
+.subs-details-scroll .scroll-bar .increment-arrow,
+.subs-details-scroll .scroll-bar .decrement-arrow {
+    -fx-shape: " ";
+    -fx-padding: 0;
+}

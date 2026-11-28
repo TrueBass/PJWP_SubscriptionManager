@@ -8,6 +8,7 @@ import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
+import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Priority;
@@ -43,10 +44,13 @@ public class SubscriptionsView extends HBox {
   private final Label empty = new Label("No subscriptions found");
   private final Button addButton = new Button();
   private final VBox details = new VBox(12);
+  private final SubscriptionForm editForm = new SubscriptionForm();
+  private Subscription selected;
 
   public SubscriptionsView() {
     super(20);
     getStylesheets().add(getClass().getResource("/subs.css").toExternalForm());
+    getStylesheets().add(getClass().getResource("/form.css").toExternalForm()); // for the Save/Delete buttons
     getStyleClass().add("subs-page");
 
     Label title = new Label("Subscriptions");
@@ -110,17 +114,56 @@ public class SubscriptionsView extends HBox {
     empty.setManaged(shown.isEmpty());
   }
 
-  // TODO edit form for the selected sub
+  // right panel: edit form for the clicked sub, or a hint if nothing is selected
   private void showDetails(Subscription sub) {
+    selected = sub;
     if (sub == null) {
       Label hint = new Label("Select a subscription to see its details");
       hint.getStyleClass().add("subs-details-hint");
       details.getChildren().setAll(hint);
       return;
     }
+
     Label name = new Label(sub.name());
     name.getStyleClass().add("subs-title");
-    details.getChildren().setAll(name);
+    Label meta = new Label("$" + sub.price() + " / " + (sub.cycle().equalsIgnoreCase("yearly") ? "year" : "month"));
+    meta.getStyleClass().add("subs-summary");
+
+    editForm.setSubscription(sub);
+    ScrollPane scroll = new ScrollPane(editForm);
+    scroll.setFitToWidth(true);
+    scroll.setHbarPolicy(ScrollPane.ScrollBarPolicy.NEVER);
+    scroll.getStyleClass().add("subs-details-scroll");
+    VBox.setVgrow(scroll, Priority.ALWAYS);
+
+    Button delete = new Button("Delete");
+    delete.getStyleClass().add("danger-button");
+    delete.setOnAction(e -> deleteSelected());
+    Button save = new Button("Save");
+    save.getStyleClass().add("primary-button");
+    save.setOnAction(e -> saveSelected());
+    for (Button b : List.of(delete, save)) {
+      b.setMaxWidth(Double.MAX_VALUE);
+      HBox.setHgrow(b, Priority.ALWAYS);
+    }
+
+    details.getChildren().setAll(new VBox(2, name, meta), scroll, new HBox(10, delete, save));
+  }
+
+  private void saveSelected() {
+    Subscription updated = editForm.getSubscription();
+    if (updated == null) return; // form shows what's wrong
+    subs.set(subs.indexOf(selected), updated);
+    list.setSelected(updated);
+    refresh();
+    showDetails(updated);
+  }
+
+  private void deleteSelected() {
+    subs.remove(selected);
+    list.setSelected(null);
+    refresh();
+    showDetails(null);
   }
 
   private boolean matchesDate(Subscription s) {
