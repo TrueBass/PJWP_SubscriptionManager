@@ -20,3 +20,24 @@
     -fx-opacity: 0.6;
     -fx-padding: 0 0 12 0;
 }
+
+/* inputs: search field */
+.subs-search {
+    -fx-padding: 8 12;
+    -fx-font-size: 13px;
+    -fx-text-fill: -text;
+    -fx-prompt-text-fill: derive(-text, -45%);
+    -fx-background-color: derive(-bg, 10%);
+    -fx-background-radius: 10px;
+    -fx-border-color: transparent;
+    -fx-border-radius: 10px;
+}
+
+.subs-search:focused {
+    -fx-border-color: -accent;
+}
+
+.subs-empty {
+    -fx-padding: 12 0;
+    -fx-opacity: 0.6;
+}
