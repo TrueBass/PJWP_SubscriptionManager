@@ -71,3 +71,23 @@
 .subs-filter .combo-box-popup .list-view .list-cell:filled:selected {
     -fx-background-color: derive(-bg, 25%);
 }
+
+.add-button {
+    -fx-min-width: 48px;
+    -fx-min-height: 48px;
+    -fx-max-width: 48px;
+    -fx-max-height: 48px;
+    -fx-background-color: -accent;
+    -fx-background-radius: 24px;
+    -fx-cursor: hand;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.4), 10, 0, 0, 3);
+}
+
+.add-button:hover {
+    -fx-background-color: derive(-accent, 15%);
+}
+
+.add-button .ikonli-font-icon {
+    -fx-icon-color: -bg;
+    -fx-icon-size: 26px;
+}

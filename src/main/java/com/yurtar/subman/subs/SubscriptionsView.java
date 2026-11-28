@@ -4,12 +4,16 @@ import com.yurtar.subman.common.components.SubscriptionList;
 import com.yurtar.subman.model.SampleData;
 import com.yurtar.subman.model.Subscription;
 import javafx.geometry.Insets;
+import javafx.geometry.Pos;
+import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Priority;
+import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
+import org.kordamp.ikonli.javafx.FontIcon;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
@@ -37,6 +41,7 @@ public class SubscriptionsView extends HBox {
   private final ComboBox<String> priceFilter = new ComboBox<>();
   private final SubscriptionList list = new SubscriptionList();
   private final Label empty = new Label("No subscriptions found");
+  private final Button addButton = new Button();
 
   public SubscriptionsView() {
     super(20);
@@ -65,9 +70,17 @@ public class SubscriptionsView extends HBox {
     VBox.setMargin(filters, new Insets(0, 0, 8, 0));
 
     empty.getStyleClass().add("subs-empty");
-    VBox.setVgrow(list, Priority.ALWAYS);
 
-    VBox left = new VBox(8, title, summary, search, filters, empty, list);
+    // round "+" button floating over the bottom right corner of the list
+    addButton.setGraphic(new FontIcon("mdi2p-plus"));
+    addButton.getStyleClass().add("add-button");
+    StackPane.setAlignment(addButton, Pos.BOTTOM_RIGHT);
+    StackPane.setMargin(addButton, new Insets(0, 20, 12, 0));
+    // TODO open add subscription form
+    StackPane listArea = new StackPane(list, addButton);
+    VBox.setVgrow(listArea, Priority.ALWAYS);
+
+    VBox left = new VBox(8, title, summary, search, filters, empty, listArea);
     left.getStyleClass().add("subs-left");
     HBox.setHgrow(left, Priority.ALWAYS);
 
